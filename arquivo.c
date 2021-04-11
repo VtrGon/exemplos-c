@@ -34,14 +34,14 @@ int ler(Dado *V, FILE *arq, int *cont) {
 
 /* Ao finalizar o programa essa funcao eh chamada para
 salvar os dados no arquivo save.txt */
-int gravar(Dado *V, FILE *arq, int *cont) {
+int gravar(Dado *V, FILE *arq, int cont) {
     /* Abre arquivo em modo de escrita (write) */
     arq = fopen("save.txt", "w");
 
     if(!arq) return -1;
 
     /* Percorre todo o vetor e suas informacoes sao salvas por linha */
-    for(int i = 0; i < *cont; i++)
+    for(int i = 0; i < cont; i++)
         fprintf(arq, "%d\t%s\n", V[i].id, V[i].titulo);
 
     fclose(arq);
@@ -58,7 +58,7 @@ int main() {
     for(int i = 0; i < qtd_elementos; i++)
         printf("%d\t%s\n", vetor[i].id, vetor[i].titulo);
 
-    gravar(vetor, arq, &qtd_elementos);
+    gravar(vetor, arq, qtd_elementos);
 
     return 0;
 }
