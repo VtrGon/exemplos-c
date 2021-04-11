@@ -13,12 +13,9 @@ int ler(Dado *V, FILE *arq, int *cont) {
     /* Abre arquivo em modo de leitura (read) */
     arq = fopen("save.txt", "r");
 
-    if(!arq) {
-        printf("Erro! Nao foi possivel abrir o arquivo.\n");
-        return -1;
-    }
+    if(!arq) return -1;
 
-    /* Enquanto o fim do arquivo nao chega essa funcao sera
+    /* Enquanto o fim do arquivo nao chegar essa funcao sera
     executada (end of file)*/
     for(int i = 0; !feof(arq); i++) {
         /* Utiliza o vetor para guardar as informacoes
@@ -27,7 +24,7 @@ int ler(Dado *V, FILE *arq, int *cont) {
 
         /* Entrega a quantidade de dados carregados por passagem
          de parametro por referencia com a variavel cont*/
-        *cont = *cont + 1;
+        *cont += 1;
     }
 
     /* Fecha o arquivo */
@@ -41,10 +38,7 @@ int gravar(Dado *V, FILE *arq, int *cont) {
     /* Abre arquivo em modo de escrita (write) */
     arq = fopen("save.txt", "w");
 
-    if(!arq) {
-        printf("Erro! Nao foi possivel abrir o arquivo.\n");
-        return -1;
-    }
+    if(!arq) return -1;
 
     /* Percorre todo o vetor e suas informacoes sao salvas por linha */
     for(int i = 0; i < *cont; i++)
