@@ -97,7 +97,7 @@ int adicionar_em(Lista *L, Dado dado, int pos) {
     return 0;
 }
 
-/* Apresenta dados da Hash ao usuario */
+/* Apresenta dados da lista ao usuario */
 void print_lista(Lista L) {
     Celula *temp = L.inicio->prox;
 
